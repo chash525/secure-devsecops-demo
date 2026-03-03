@@ -30,7 +30,7 @@ jobs:
 
     - name: Run Dependency Scan
       run: |
-        pip-audit
+        pip-audit -r requirements.txt
 
     - name: Build Docker Image
       run: |
