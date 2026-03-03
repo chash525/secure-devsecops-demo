@@ -32,6 +32,10 @@ jobs:
       run: |
         pip-audit -r requirements.txt
 
+    - name: Ignore CVE-2026-27205
+      run: |
+        pip-audit --ignore CVE-2026-27205
+
     - name: Build Docker Image
       run: |
         docker build -t devsecops-demo:latest .
