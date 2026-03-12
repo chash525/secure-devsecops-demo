@@ -53,7 +53,7 @@ jobs:
         trivy image devsecops-demo:latest
 
     - name: Lint Dockerfile
-      uses: hadolint/hadolint-action
+      uses: hadolint/hadolint-action@v1
       with:
         dockerfile: ./Dockerfile
 
