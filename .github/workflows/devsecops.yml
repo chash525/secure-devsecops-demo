@@ -97,6 +97,17 @@ jobs:
         echo "## OPA Policy Check" >> reports/latest_report.md
         conftest test Dockerfile --policy ./policies >> reports/latest_report.md || echo "All policies passed" >> reports/latest_report.md
 
+    # ------------------------
+    #  Send out Markdown Report
+    #  -----------------------
+    - name: Send Report via Email
+      run: |
+        python3 scripts/send_email.py
+      env:
+        EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        TO_EMAIL: $ {{ secrets.TO_EMAIL }}
+
     # -------------------------
     # DockerHub Push
     # -------------------------
